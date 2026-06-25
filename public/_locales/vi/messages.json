@@ -1,24 +1,96 @@
 {
-  "ext_name":        { "message": "Gemini Chat Cleaner" },
-  "ext_description": { "message": "Chọn và xóa hàng loạt cuộc trò chuyện Gemini" },
-  "idle_hint":   { "message": "để chọn hàng loạt" },
-  "btn_select":  { "message": "Chọn chat" },
-  "mode_title":  { "message": "Chế độ chọn" },
-  "key_chat":   { "message": "chọn chat" },
-  "key_all":    { "message": "chọn tất cả" },
-  "key_clear":  { "message": "xóa chọn" },
-  "key_delete": { "message": "xóa" },
-  "key_exit":   { "message": "thoát" },
-  "btn_clear": { "message": "Xóa chọn" },
-  "btn_del1":  { "message": "Xóa 1 chat" },
-  "btn_delN":  { "message": "Xóa $COUNT$ chat", "placeholders": { "count": { "content": "$1" } } },
-  "btn_exit":  { "message": "Thoát chế độ chọn" },
-  "sel0": { "message": "Đã chọn 0 chat" },
-  "sel1": { "message": "Đã chọn 1 chat" },
-  "selN": { "message": "Đã chọn $COUNT$ chat", "placeholders": { "count": { "content": "$1" } } },
-  "conf1": { "message": "Nhấn ↩ lần nữa để xóa 1 chat" },
-  "confN": { "message": "Nhấn ↩ lần nữa để xóa $COUNT$ chat", "placeholders": { "count": { "content": "$1" } } },
-  "done1":    { "message": "Đã xóa 1 chat" },
-  "doneN":    { "message": "Đã xóa $COUNT$ chat", "placeholders": { "count": { "content": "$1" } } },
-  "doneFail": { "message": "Đã xóa $DONE$, lỗi $FAILED$", "placeholders": { "done": { "content": "$1" }, "failed": { "content": "$2" } } }
+  "ext_name": {
+    "message": "Gemini Chat Cleaner"
+  },
+  "ext_description": {
+    "message": "Chọn và xóa hàng loạt cuộc trò chuyện Gemini"
+  },
+  "idle_hint": {
+    "message": "để chọn hàng loạt"
+  },
+  "btn_select": {
+    "message": "Chọn chat"
+  },
+  "mode_title": {
+    "message": "Chọn chats để xóa"
+  },
+  "key_chat": {
+    "message": "chọn chat"
+  },
+  "key_all": {
+    "message": "chọn tất cả"
+  },
+  "key_clear": {
+    "message": "xóa chọn"
+  },
+  "key_delete": {
+    "message": "xóa"
+  },
+  "key_exit": {
+    "message": "thoát"
+  },
+  "btn_clear": {
+    "message": "Xóa chọn"
+  },
+  "btn_del1": {
+    "message": "Xóa 1 chat"
+  },
+  "btn_delN": {
+    "message": "Xóa $COUNT$ chat",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "btn_exit": {
+    "message": "Thoát chế độ chọn"
+  },
+  "sel0": {
+    "message": "Đã chọn 0 chat"
+  },
+  "sel1": {
+    "message": "Đã chọn 1 chat"
+  },
+  "selN": {
+    "message": "Đã chọn $COUNT$ chat",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "conf1": {
+    "message": "Nhấn ↩ lần nữa để xóa 1 chat"
+  },
+  "confN": {
+    "message": "Nhấn ↩ lần nữa để xóa $COUNT$ chat",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "done1": {
+    "message": "Đã xóa 1 chat"
+  },
+  "doneN": {
+    "message": "Đã xóa $COUNT$ chat",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "doneFail": {
+    "message": "Đã xóa $DONE$, lỗi $FAILED$",
+    "placeholders": {
+      "done": {
+        "content": "$1"
+      },
+      "failed": {
+        "content": "$2"
+      }
+    }
+  }
 }

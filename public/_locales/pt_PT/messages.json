@@ -1,24 +1,96 @@
 {
-  "ext_name":        { "message": "Gemini Chat Cleaner" },
-  "ext_description": { "message": "Seleccione e elimine conversas do Gemini em massa" },
-  "idle_hint":   { "message": "para selecção em massa" },
-  "btn_select":  { "message": "Seleccionar chats" },
-  "mode_title":  { "message": "Modo de selecção" },
-  "key_chat":   { "message": "seleccionar chat" },
-  "key_all":    { "message": "seleccionar tudo" },
-  "key_clear":  { "message": "limpar" },
-  "key_delete": { "message": "eliminar" },
-  "key_exit":   { "message": "sair" },
-  "btn_clear": { "message": "Limpar" },
-  "btn_del1":  { "message": "Eliminar 1 chat" },
-  "btn_delN":  { "message": "Eliminar $COUNT$ chats", "placeholders": { "count": { "content": "$1" } } },
-  "btn_exit":  { "message": "Sair do modo de selecção" },
-  "sel0": { "message": "0 chats seleccionados" },
-  "sel1": { "message": "1 chat seleccionado" },
-  "selN": { "message": "$COUNT$ chats seleccionados", "placeholders": { "count": { "content": "$1" } } },
-  "conf1": { "message": "Prima ↩ novamente para eliminar 1 chat" },
-  "confN": { "message": "Prima ↩ novamente para eliminar $COUNT$ chats", "placeholders": { "count": { "content": "$1" } } },
-  "done1":    { "message": "1 chat eliminado" },
-  "doneN":    { "message": "$COUNT$ chats eliminados", "placeholders": { "count": { "content": "$1" } } },
-  "doneFail": { "message": "$DONE$ eliminados, $FAILED$ falhados", "placeholders": { "done": { "content": "$1" }, "failed": { "content": "$2" } } }
+  "ext_name": {
+    "message": "Gemini Chat Cleaner"
+  },
+  "ext_description": {
+    "message": "Seleccione e elimine conversas do Gemini em massa"
+  },
+  "idle_hint": {
+    "message": "para selecção em massa"
+  },
+  "btn_select": {
+    "message": "Seleccionar chats"
+  },
+  "mode_title": {
+    "message": "Selecionar conversas para apagar"
+  },
+  "key_chat": {
+    "message": "seleccionar chat"
+  },
+  "key_all": {
+    "message": "seleccionar tudo"
+  },
+  "key_clear": {
+    "message": "limpar"
+  },
+  "key_delete": {
+    "message": "eliminar"
+  },
+  "key_exit": {
+    "message": "sair"
+  },
+  "btn_clear": {
+    "message": "Limpar"
+  },
+  "btn_del1": {
+    "message": "Eliminar 1 chat"
+  },
+  "btn_delN": {
+    "message": "Eliminar $COUNT$ chats",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "btn_exit": {
+    "message": "Sair do modo de selecção"
+  },
+  "sel0": {
+    "message": "0 chats seleccionados"
+  },
+  "sel1": {
+    "message": "1 chat seleccionado"
+  },
+  "selN": {
+    "message": "$COUNT$ chats seleccionados",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "conf1": {
+    "message": "Prima ↩ novamente para eliminar 1 chat"
+  },
+  "confN": {
+    "message": "Prima ↩ novamente para eliminar $COUNT$ chats",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "done1": {
+    "message": "1 chat eliminado"
+  },
+  "doneN": {
+    "message": "$COUNT$ chats eliminados",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "doneFail": {
+    "message": "$DONE$ eliminados, $FAILED$ falhados",
+    "placeholders": {
+      "done": {
+        "content": "$1"
+      },
+      "failed": {
+        "content": "$2"
+      }
+    }
+  }
 }

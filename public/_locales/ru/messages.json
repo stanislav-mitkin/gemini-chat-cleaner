@@ -1,30 +1,96 @@
 {
-  "ext_name":        { "message": "Gemini Chat Cleaner" },
-  "ext_description": { "message": "Выбор и массовое удаление чатов в Gemini" },
-
-  "idle_hint":   { "message": "для выбора чатов" },
-  "btn_select":  { "message": "Выбрать чаты" },
-  "mode_title":  { "message": "Режим выбора" },
-
-  "key_chat":   { "message": "выбрать чат" },
-  "key_all":    { "message": "выбрать все" },
-  "key_clear":  { "message": "сбросить" },
-  "key_delete": { "message": "удалить" },
-  "key_exit":   { "message": "выйти" },
-
-  "btn_clear": { "message": "Сбросить" },
-  "btn_del1":  { "message": "Удалить 1 чат" },
-  "btn_delN":  { "message": "Удалить $COUNT$ чатов", "placeholders": { "count": { "content": "$1" } } },
-  "btn_exit":  { "message": "Выйти из режима выбора" },
-
-  "sel0": { "message": "0 чатов выбрано" },
-  "sel1": { "message": "1 чат выбран" },
-  "selN": { "message": "$COUNT$ чатов выбрано", "placeholders": { "count": { "content": "$1" } } },
-
-  "conf1": { "message": "Нажмите ↩ ещё раз, чтобы удалить 1 чат" },
-  "confN": { "message": "Нажмите ↩ ещё раз, чтобы удалить $COUNT$ чатов", "placeholders": { "count": { "content": "$1" } } },
-
-  "done1":    { "message": "Удалён 1 чат" },
-  "doneN":    { "message": "Удалено $COUNT$ чатов", "placeholders": { "count": { "content": "$1" } } },
-  "doneFail": { "message": "Удалено $DONE$, ошибок $FAILED$", "placeholders": { "done": { "content": "$1" }, "failed": { "content": "$2" } } }
+  "ext_name": {
+    "message": "Gemini Chat Cleaner"
+  },
+  "ext_description": {
+    "message": "Выбор и массовое удаление чатов в Gemini"
+  },
+  "idle_hint": {
+    "message": "для выбора чатов"
+  },
+  "btn_select": {
+    "message": "Выбрать чаты"
+  },
+  "mode_title": {
+    "message": "Выберите чаты для удаления"
+  },
+  "key_chat": {
+    "message": "выбрать чат"
+  },
+  "key_all": {
+    "message": "выбрать все"
+  },
+  "key_clear": {
+    "message": "сбросить"
+  },
+  "key_delete": {
+    "message": "удалить"
+  },
+  "key_exit": {
+    "message": "выйти"
+  },
+  "btn_clear": {
+    "message": "Сбросить"
+  },
+  "btn_del1": {
+    "message": "Удалить 1 чат"
+  },
+  "btn_delN": {
+    "message": "Удалить $COUNT$ чатов",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "btn_exit": {
+    "message": "Выйти из режима выбора"
+  },
+  "sel0": {
+    "message": "0 чатов выбрано"
+  },
+  "sel1": {
+    "message": "1 чат выбран"
+  },
+  "selN": {
+    "message": "$COUNT$ чатов выбрано",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "conf1": {
+    "message": "Нажмите ↩ ещё раз, чтобы удалить 1 чат"
+  },
+  "confN": {
+    "message": "Нажмите ↩ ещё раз, чтобы удалить $COUNT$ чатов",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "done1": {
+    "message": "Удалён 1 чат"
+  },
+  "doneN": {
+    "message": "Удалено $COUNT$ чатов",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "doneFail": {
+    "message": "Удалено $DONE$, ошибок $FAILED$",
+    "placeholders": {
+      "done": {
+        "content": "$1"
+      },
+      "failed": {
+        "content": "$2"
+      }
+    }
+  }
 }

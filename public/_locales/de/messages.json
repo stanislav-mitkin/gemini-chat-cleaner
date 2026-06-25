@@ -1,24 +1,96 @@
 {
-  "ext_name":        { "message": "Gemini Chat Cleaner" },
-  "ext_description": { "message": "Gemini-Unterhaltungen auswählen und in Massen löschen" },
-  "idle_hint":   { "message": "zum Massenauswählen" },
-  "btn_select":  { "message": "Chats auswählen" },
-  "mode_title":  { "message": "Auswahlmodus" },
-  "key_chat":   { "message": "Chat auswählen" },
-  "key_all":    { "message": "alle auswählen" },
-  "key_clear":  { "message": "zurücksetzen" },
-  "key_delete": { "message": "löschen" },
-  "key_exit":   { "message": "beenden" },
-  "btn_clear": { "message": "Zurücksetzen" },
-  "btn_del1":  { "message": "1 Chat löschen" },
-  "btn_delN":  { "message": "$COUNT$ Chats löschen", "placeholders": { "count": { "content": "$1" } } },
-  "btn_exit":  { "message": "Auswahlmodus beenden" },
-  "sel0": { "message": "0 Chats ausgewählt" },
-  "sel1": { "message": "1 Chat ausgewählt" },
-  "selN": { "message": "$COUNT$ Chats ausgewählt", "placeholders": { "count": { "content": "$1" } } },
-  "conf1": { "message": "Erneut ↩ drücken, um 1 Chat zu löschen" },
-  "confN": { "message": "Erneut ↩ drücken, um $COUNT$ Chats zu löschen", "placeholders": { "count": { "content": "$1" } } },
-  "done1":    { "message": "1 Chat gelöscht" },
-  "doneN":    { "message": "$COUNT$ Chats gelöscht", "placeholders": { "count": { "content": "$1" } } },
-  "doneFail": { "message": "$DONE$ gelöscht, $FAILED$ fehlgeschlagen", "placeholders": { "done": { "content": "$1" }, "failed": { "content": "$2" } } }
+  "ext_name": {
+    "message": "Gemini Chat Cleaner"
+  },
+  "ext_description": {
+    "message": "Gemini-Unterhaltungen auswählen und in Massen löschen"
+  },
+  "idle_hint": {
+    "message": "zum Massenauswählen"
+  },
+  "btn_select": {
+    "message": "Chats auswählen"
+  },
+  "mode_title": {
+    "message": "Chats zum Löschen auswählen"
+  },
+  "key_chat": {
+    "message": "Chat auswählen"
+  },
+  "key_all": {
+    "message": "alle auswählen"
+  },
+  "key_clear": {
+    "message": "zurücksetzen"
+  },
+  "key_delete": {
+    "message": "löschen"
+  },
+  "key_exit": {
+    "message": "beenden"
+  },
+  "btn_clear": {
+    "message": "Zurücksetzen"
+  },
+  "btn_del1": {
+    "message": "1 Chat löschen"
+  },
+  "btn_delN": {
+    "message": "$COUNT$ Chats löschen",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "btn_exit": {
+    "message": "Auswahlmodus beenden"
+  },
+  "sel0": {
+    "message": "0 Chats ausgewählt"
+  },
+  "sel1": {
+    "message": "1 Chat ausgewählt"
+  },
+  "selN": {
+    "message": "$COUNT$ Chats ausgewählt",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "conf1": {
+    "message": "Erneut ↩ drücken, um 1 Chat zu löschen"
+  },
+  "confN": {
+    "message": "Erneut ↩ drücken, um $COUNT$ Chats zu löschen",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "done1": {
+    "message": "1 Chat gelöscht"
+  },
+  "doneN": {
+    "message": "$COUNT$ Chats gelöscht",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "doneFail": {
+    "message": "$DONE$ gelöscht, $FAILED$ fehlgeschlagen",
+    "placeholders": {
+      "done": {
+        "content": "$1"
+      },
+      "failed": {
+        "content": "$2"
+      }
+    }
+  }
 }

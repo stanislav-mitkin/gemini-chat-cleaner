@@ -4,164 +4,290 @@ import { isMac } from './platform';
 
 const HOST_ID = 'gcc-overlay-host';
 
+// Tab (44px) is leftmost; panel (220px) to its right — total = 264px
+// When closed: translateX(220) hides panel off-screen, shows only the tab pill at right edge
+// When open:   translateX(0)   shows both, panel's right edge at screen edge
+const TAB_W   = 44;
+const PANEL_W = 220;
+
+const LOGO_ICON = `<svg class="icon-logo" viewBox="0 0 128 128" width="22" height="22" aria-hidden="true">
+  <defs>
+    <linearGradient id="gcc-g" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4da6ff"/>
+      <stop offset="100%" style="stop-color:#1a73e8"/>
+    </linearGradient>
+  </defs>
+  <rect x="22" y="28" width="84" height="12" rx="6" fill="url(#gcc-g)"/>
+  <rect x="46" y="14" width="36" height="14" rx="7" fill="url(#gcc-g)"/>
+  <rect x="30" y="44" width="68" height="70" rx="8" fill="url(#gcc-g)"/>
+  <rect x="46" y="56" width="8" height="46" rx="4" fill="white" opacity="0.6"/>
+  <rect x="60" y="56" width="8" height="46" rx="4" fill="white" opacity="0.6"/>
+  <rect x="74" y="56" width="8" height="46" rx="4" fill="white" opacity="0.6"/>
+</svg>`;
+
+const ARROW_LEFT  = `<svg class="arrow arrow-open"  viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3L5 8l5 5"/></svg>`;
+const ARROW_RIGHT = `<svg class="arrow arrow-close" viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>`;
+
 const SHADOW_CSS = `
+  /* ── tokens ─────────────────────────────────────────────── */
   :host {
-    --bg:              rgba(18,18,18,0.88);
-    --border:          rgba(255,255,255,0.09);
-    --shadow:          0 4px 24px rgba(0,0,0,0.35);
-    --text:            #e5e5e5;
-    --text-muted:      rgba(255,255,255,0.45);
-    --text-dim:        rgba(255,255,255,0.35);
-    --shortcut-bg:     rgba(255,255,255,0.08);
-    --shortcut-fg:     rgba(255,255,255,0.65);
-    --divider:         rgba(255,255,255,0.08);
-    --btn-ghost-bg:    rgba(255,255,255,0.09);
-    --btn-ghost-fg:    rgba(255,255,255,0.65);
-    --btn-exit-fg:     rgba(255,255,255,0.35);
-    --btn-exit-border: rgba(255,255,255,0.1);
-    --title-fg:        #fff;
-    --dot:             #4285f4;
-    --dot-warn:        #f59e0b;
-    --dot-danger:      #ef4444;
-    --badge-active:    #4285f4;
-    --badge-warn:      #f59e0b;
-    --badge-danger:    #ef4444;
-    --success:         #34a853;
-    --error:           #ef4444;
+    --bg:         rgba(255,255,255,0.98);
+    --border:     rgba(0,0,0,0.1);
+    --shadow:     -4px 0 24px rgba(0,0,0,0.12);
+    --tab-shadow: -3px 2px 14px rgba(0,0,0,0.1);
+    --text:       #1a1a1a;
+    --text-muted: rgba(0,0,0,0.5);
+    --text-dim:   rgba(0,0,0,0.35);
+    --divider:    rgba(0,0,0,0.07);
+    --accent:     #1a73e8;
+    --accent-bg:  rgba(26,115,232,0.09);
+    --danger:     #d93025;
+    --warn:       #f59e0b;
+    --warn-bg:    rgba(245,158,11,0.1);
+    --ghost-bg:   rgba(0,0,0,0.04);
+    --ghost-fg:   rgba(0,0,0,0.55);
+    --success:    #188038;
+    --error:      #d93025;
   }
-  :host(.light) {
-    --bg:              rgba(250,250,250,0.95);
-    --border:          rgba(0,0,0,0.1);
-    --shadow:          0 4px 24px rgba(0,0,0,0.12);
-    --text:            #1a1a1a;
-    --text-muted:      rgba(0,0,0,0.55);
-    --text-dim:        rgba(0,0,0,0.42);
-    --shortcut-bg:     rgba(0,0,0,0.07);
-    --shortcut-fg:     rgba(0,0,0,0.6);
-    --divider:         rgba(0,0,0,0.08);
-    --btn-ghost-bg:    rgba(0,0,0,0.07);
-    --btn-ghost-fg:    rgba(0,0,0,0.65);
-    --btn-exit-fg:     rgba(0,0,0,0.4);
-    --btn-exit-border: rgba(0,0,0,0.12);
-    --title-fg:        #111;
-    --dot:             #1a73e8;
-    --dot-warn:        #d97706;
-    --dot-danger:      #dc2626;
-    --badge-active:    #1a73e8;
-    --badge-warn:      #d97706;
-    --badge-danger:    #dc2626;
-    --success:         #0f9d58;
-    --error:           #dc2626;
+  @media (prefers-color-scheme: dark) {
+    :host {
+      --bg:         rgba(32,33,36,0.98);
+      --border:     rgba(255,255,255,0.1);
+      --shadow:     -4px 0 24px rgba(0,0,0,0.45);
+      --tab-shadow: -3px 2px 14px rgba(0,0,0,0.3);
+      --text:       #e8eaed;
+      --text-muted: rgba(255,255,255,0.5);
+      --text-dim:   rgba(255,255,255,0.32);
+      --divider:    rgba(255,255,255,0.08);
+      --accent:     #8ab4f8;
+      --accent-bg:  rgba(138,180,248,0.14);
+      --danger:     #f28b82;
+      --warn:       #fdd663;
+      --warn-bg:    rgba(253,214,99,0.1);
+      --ghost-bg:   rgba(255,255,255,0.06);
+      --ghost-fg:   rgba(255,255,255,0.58);
+      --success:    #81c995;
+      --error:      #f28b82;
+    }
   }
 
+  /* ── host: anchored to right edge ───────────────────────── */
   :host {
     all: initial;
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    right: 0;
+    bottom: 120px;
     z-index: 2147483647;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     pointer-events: none;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
   }
 
+  /* ── card: flex row, aligns tab pill vertically centered ── */
+  /* Card itself has NO background — only .tab and .panel do  */
   .card {
-    background: var(--bg);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    box-shadow: var(--shadow);
-    transition: opacity 0.15s ease, transform 0.15s ease;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transform: translateX(${PANEL_W}px);
+    transition: transform 0.26s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
   }
-  .card.hidden {
-    opacity: 0;
-    transform: translateY(5px);
-    pointer-events: none;
-  }
+  .card.open { transform: translateX(0); }
 
-  .idle-card {
+  /* ── tab: compact pill — the only thing visible when closed */
+  .tab {
+    position: relative;
+    width: ${TAB_W}px;
+    height: 64px;
+    flex-shrink: 0;
     display: flex;
     flex-direction: column;
-    padding: 8px 10px 8px 13px;
-    margin-bottom: 6px;
-  }
-  .idle-row {
-    display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    pointer-events: auto;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-right: none;               /* flush against panel left edge */
+    border-radius: 12px 0 0 12px;
+    box-shadow: var(--tab-shadow);
+    color: var(--text-muted);
+    transition: color 0.18s, background 0.18s;
+    user-select: none;
+    -webkit-user-select: none;
   }
-  .idle-hint {
-    font-size: 11px;
-    color: var(--text-dim);
-    white-space: nowrap;
+  .tab:hover {
+    color: var(--accent);
+    background: var(--accent-bg);
   }
-  .idle-result {
-    display: none;
-    font-size: 11px;
-    margin-top: 5px;
-    padding-top: 5px;
-    border-top: 1px solid var(--divider);
-  }
-  .idle-result.visible         { display: block; }
-  .idle-result.idle-success    { color: var(--success); }
-  .idle-result.idle-error      { color: var(--error); }
+  .tab.active { color: var(--accent); }
 
-  .panel {
-    padding: 12px 16px;
-    color: var(--text);
-    min-width: 215px;
-    margin-bottom: 6px;
-  }
-  .header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 10px;
-  }
-  .dot {
+  /* ── arrows: ← when closed, → when open ─────────────────── */
+  .arrow { display: none; }
+  .arrow-open  { display: block; }
+  .card.open .arrow-open  { display: none; }
+  .card.open .arrow-close { display: block; }
+
+  /* ── result dot: success/error indicator in tab corner ───── */
+  .result-dot {
+    display: none;
+    position: absolute;
+    top: 8px; left: 8px;
     width: 7px; height: 7px;
     border-radius: 50%;
-    background: var(--dot);
+    border: 1.5px solid var(--bg);
+  }
+  .result-dot.success { display: block; background: var(--success); }
+  .result-dot.error   { display: block; background: var(--error); }
+
+  /* ── panel ───────────────────────────────────────────────── */
+  .panel {
+    width: ${PANEL_W}px;
     flex-shrink: 0;
-    transition: background 0.15s;
+    padding: 12px 14px 12px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-right: none;               /* right edge sits at screen boundary */
+    border-radius: 12px 0 0 12px;
+    box-shadow: var(--shadow);
+    color: var(--text);
+    box-sizing: border-box;
+    pointer-events: auto;
   }
-  .dot.warn   { background: var(--dot-warn); }
-  .dot.danger { background: var(--dot-danger); }
 
-  .title { font-weight: 600; color: var(--title-fg); font-size: 13px; }
-
-  .count-badge {
-    margin-left: auto;
-    font-size: 11px;
-    font-weight: 600;
+  /* ── panel header: label + shortcuts toggle ──────────────── */
+  .panel-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+  .panel-label {
+    font-size: 11.5px;
     color: var(--text-muted);
-    white-space: nowrap;
-    transition: color 0.15s;
+    font-weight: 500;
+    flex: 1;
+    letter-spacing: 0.01em;
   }
-  .count-badge.has-selection { color: var(--badge-active); }
-  .count-badge.warn   { color: var(--badge-warn); }
-  .count-badge.danger { color: var(--badge-danger); }
+  .btn-help {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: transparent;
+    font-size: 10px;
+    color: var(--text-dim);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+    font-weight: 700;
+    line-height: 1;
+    padding: 0;
+    pointer-events: auto;
+    flex-shrink: 0;
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
+  }
+  .btn-help:hover { color: var(--accent); border-color: var(--accent); }
+  .btn-help.active { color: var(--accent); border-color: var(--accent); background: var(--accent-bg); }
 
-  .hints {
+  /* ── count row: shown only when selection > 0 ────────────── */
+  .count-row { margin-bottom: 8px; }
+  .count-row.hidden { display: none; }
+  .count-badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-bg);
+    border-radius: 10px;
+    padding: 2px 9px;
+    transition: color 0.15s, background 0.15s;
+  }
+  .count-badge.warn {
+    color: var(--warn);
+    background: var(--warn-bg);
+  }
+
+  /* ── shortcuts grid: hidden by default ───────────────────── */
+  .shortcuts {
+    margin-bottom: 8px;
+    padding: 7px 9px;
+    background: var(--ghost-bg);
+    border-radius: 8px;
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 3px 10px;
   }
+  .shortcuts.hidden { display: none; }
   .key {
     font-family: 'SF Mono', 'Fira Code', monospace;
-    font-size: 11px;
-    color: var(--shortcut-fg);
+    font-size: 10px;
+    color: var(--text-dim);
     text-align: right;
     white-space: nowrap;
   }
-  .label { font-size: 11px; color: var(--text-muted); }
+  .hint-label {
+    font-size: 10.5px;
+    color: var(--text-muted);
+  }
 
+  /* ── action bar: shown when selection > 0 ────────────────── */
+  .action-bar {
+    display: none;
+    gap: 6px;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--divider);
+  }
+  .action-bar.visible { display: flex; }
+
+  /* ── exit bar ────────────────────────────────────────────── */
+  .exit-bar {
+    margin-top: 8px;
+    padding-top: 6px;
+    border-top: 1px solid var(--divider);
+  }
+
+  /* ── status message ──────────────────────────────────────── */
+  .status {
+    display: none;
+    font-size: 11.5px;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--divider);
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+  .status.visible { display: block; }
+  .status.confirm { color: var(--warn); }
+  .status.error   { color: var(--error); }
+  .status.success { color: var(--success); }
+
+  /* ── progress bar ────────────────────────────────────────── */
+  .progress-bar {
+    height: 2px;
+    background: var(--divider);
+    border-radius: 1px;
+    margin-top: 6px;
+    display: none;
+    overflow: hidden;
+  }
+  .progress-bar.visible { display: block; }
+  .progress-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 1px;
+    transition: width 0.2s;
+    width: 0%;
+  }
+
+  /* ── buttons ─────────────────────────────────────────────── */
   .btn {
-    font-size: 11px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 11.5px;
+    font-family: inherit;
     border: none;
     border-radius: 6px;
     padding: 5px 10px;
@@ -171,110 +297,59 @@ const SHADOW_CSS = `
     white-space: nowrap;
     pointer-events: auto;
   }
-  .btn:hover { opacity: 0.8; }
-
-  .btn-select {
-    background: var(--btn-ghost-bg);
-    color: var(--btn-ghost-fg);
-  }
-  .btn-delete { background: var(--dot-danger); color: #fff; }
-  .btn-clear  { background: var(--btn-ghost-bg); color: var(--btn-ghost-fg); }
-  .btn-exit   {
+  .btn:hover { opacity: 0.82; }
+  .btn-delete { background: var(--danger); color: #fff; }
+  .btn-clear  { background: var(--ghost-bg); color: var(--ghost-fg); border: 1px solid var(--border); }
+  .btn-exit {
     width: 100%;
     background: transparent;
-    color: var(--btn-exit-fg);
-    border: 1px solid var(--btn-exit-border);
+    color: var(--text-dim);
+    border: 1px solid var(--divider);
     transition: background 0.15s, color 0.15s;
   }
-  .btn-exit:hover { background: var(--btn-ghost-bg); color: var(--text-muted); opacity: 1; }
-
-  .action-bar {
-    display: none;
-    gap: 6px;
-    margin-top: 10px;
-    padding-top: 8px;
-    border-top: 1px solid var(--divider);
-  }
-  .action-bar.visible { display: flex; }
-
-  .exit-bar {
-    margin-top: 8px;
-    padding-top: 6px;
-    border-top: 1px solid var(--divider);
-  }
-
-  .status {
-    display: none;
-    font-size: 12px;
-    margin-top: 8px;
-    padding-top: 8px;
-    border-top: 1px solid var(--divider);
-    color: var(--text-muted);
-  }
-  .status.visible  { display: block; }
-  .status.confirm  { color: var(--dot-warn); }
-  .status.error    { color: var(--error); }
-  .status.success  { color: var(--success); }
-
-  .progress-bar { height: 2px; background: var(--divider); border-radius: 1px; margin-top: 6px; display: none; overflow: hidden; }
-  .progress-bar.visible { display: block; }
-  .progress-fill { height: 100%; background: var(--dot); border-radius: 1px; transition: width 0.2s; width: 0%; }
-
-  .shortcut {
-    font-family: 'SF Mono', 'Fira Code', monospace;
-    background: var(--shortcut-bg);
-    color: var(--shortcut-fg);
-    border-radius: 3px;
-    padding: 1px 4px;
-  }
+  .btn-exit:hover { background: var(--ghost-bg); color: var(--text-muted); opacity: 1; }
 `;
 
 let host: HTMLElement | null = null;
 let shadow: ShadowRoot | null = null;
-let themeQuery: MediaQueryList | null = null;
-let themeListener: (() => void) | null = null;
 
-let idleCardEl: HTMLElement | null = null;
-let idleResultEl: HTMLElement | null = null;
-let panelEl: HTMLElement | null = null;
-let dotEl: HTMLElement | null = null;
-let countBadgeEl: HTMLElement | null = null;
-let statusEl: HTMLElement | null = null;
-let progressBarEl: HTMLElement | null = null;
-let progressFillEl: HTMLElement | null = null;
-let actionBarEl: HTMLElement | null = null;
-let deleteBtnEl: HTMLButtonElement | null = null;
-let clearBtnEl: HTMLButtonElement | null = null;
-let exitBtnEl: HTMLButtonElement | null = null;
-let selectBtnEl: HTMLButtonElement | null = null;
-let idleResultTimer: ReturnType<typeof setTimeout> | null = null;
+let cardEl:          HTMLElement | null        = null;
+let tabEl:           HTMLElement | null        = null;
+let resultDotEl:     HTMLElement | null        = null;
+let dotEl:           HTMLElement | null        = null; // kept for API compat (always null)
+let countBadgeEl:    HTMLElement | null        = null;
+let countRowEl:      HTMLElement | null        = null;
+let shortcutsEl:     HTMLElement | null        = null;
+let helpBtnEl:       HTMLButtonElement | null  = null;
+let statusEl:        HTMLElement | null        = null;
+let progressBarEl:   HTMLElement | null        = null;
+let progressFillEl:  HTMLElement | null        = null;
+let actionBarEl:     HTMLElement | null        = null;
+let deleteBtnEl:     HTMLButtonElement | null  = null;
+let clearBtnEl:      HTMLButtonElement | null  = null;
+let exitBtnEl:       HTMLButtonElement | null  = null;
+let resultDotTimer:  ReturnType<typeof setTimeout> | null = null;
 
 let deleteHandler: (() => void) | null = null;
 let clearHandler:  (() => void) | null = null;
 let selectHandler: (() => void) | null = null;
 let exitHandler:   (() => void) | null = null;
 
-function detectTheme(): 'dark' | 'light' {
-  return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-}
-
-function applyTheme(theme: 'dark' | 'light') {
-  host?.classList.toggle('light', theme === 'light');
-}
+function openCard()  { cardEl?.classList.add('open'); }
+function closeCard() { cardEl?.classList.remove('open'); }
 
 export function initOverlay() {
   if (document.getElementById(HOST_ID)) return;
 
   const mac = isMac();
   const mod = mac ? '⌘' : 'Ctrl+';
-  const activationKey = mac ? '⌘⇧X' : 'Ctrl+Shift+X';
 
   const hints: [string, string][] = [
-    ['click',    t('key_chat')],
-    [`${mod}A`,  t('key_all')],
-    [`${mod}D`,  t('key_clear')],
-    ['↩ × 2',    t('key_delete')],
-    ['Esc',      t('key_exit')],
+    ['click',   t('key_chat')],
+    [`${mod}A`, t('key_all')],
+    [`${mod}D`, t('key_clear')],
+    ['↩ × 2',  t('key_delete')],
+    ['Esc',     t('key_exit')],
   ];
 
   host = document.createElement('div');
@@ -284,42 +359,61 @@ export function initOverlay() {
   shadow.innerHTML = `
     <style>${SHADOW_CSS}</style>
 
-    <div class="card idle-card">
-      <div class="idle-row">
-        <span class="idle-hint"><span class="shortcut">${activationKey}</span> ${t('idle_hint')}</span>
-        <button class="btn btn-select">${t('btn_select')}</button>
-      </div>
-      <span class="idle-result"></span>
-    </div>
+    <div class="card">
 
-    <div class="card panel hidden">
-      <div class="header">
-        <span class="dot"></span>
-        <span class="title">${t('mode_title')}</span>
-        <span class="count-badge">${t('sel0')}</span>
+      <!-- Tab pill: compact tongue visible at screen edge when closed -->
+      <div class="tab" role="button" tabindex="0" aria-label="${t('btn_select')}">
+        <span class="result-dot"></span>
+        ${LOGO_ICON}
+        ${ARROW_LEFT}
+        ${ARROW_RIGHT}
       </div>
-      <div class="hints">
-        ${hints.map(([k, l]) => `<span class="key">${k}</span><span class="label">${l}</span>`).join('')}
+
+      <!-- Panel: slides in from the right -->
+      <div class="panel" role="region" aria-label="${t('mode_title')}">
+
+        <div class="panel-header">
+          <span class="panel-label">${t('mode_title')}</span>
+          <button class="btn-help" aria-label="Keyboard shortcuts" title="Keyboard shortcuts">?</button>
+        </div>
+
+        <!-- Count badge row: hidden when 0 selected -->
+        <div class="count-row hidden">
+          <span class="count-badge"></span>
+        </div>
+
+        <!-- Shortcuts grid: hidden by default, toggled by ? button -->
+        <div class="shortcuts hidden">
+          ${hints.map(([k, l]) => `<span class="key">${k}</span><span class="hint-label">${l}</span>`).join('')}
+        </div>
+
+        <div class="action-bar">
+          <button class="btn btn-clear">${t('btn_clear')}</button>
+          <button class="btn btn-delete">${t('btn_del1')}</button>
+        </div>
+
+        <div class="status"></div>
+        <div class="progress-bar"><div class="progress-fill"></div></div>
+
+        <div class="exit-bar">
+          <button class="btn btn-exit">${t('btn_exit')}</button>
+        </div>
+
       </div>
-      <div class="action-bar">
-        <button class="btn btn-clear">${t('btn_clear')}</button>
-        <button class="btn btn-delete">${t('btn_del1')}</button>
-      </div>
-      <div class="status"></div>
-      <div class="progress-bar"><div class="progress-fill"></div></div>
-      <div class="exit-bar">
-        <button class="btn btn-exit">${t('btn_exit')}</button>
-      </div>
+
     </div>
   `;
 
   document.body.appendChild(host);
 
-  idleCardEl    = shadow.querySelector('.idle-card');
-  idleResultEl  = shadow.querySelector('.idle-result');
-  panelEl       = shadow.querySelector('.panel');
-  dotEl         = shadow.querySelector('.dot');
+  cardEl        = shadow.querySelector('.card');
+  tabEl         = shadow.querySelector('.tab');
+  resultDotEl   = shadow.querySelector('.result-dot');
+  dotEl         = null; // removed from DOM; API calls via ?. are safe no-ops
   countBadgeEl  = shadow.querySelector('.count-badge');
+  countRowEl    = shadow.querySelector('.count-row');
+  shortcutsEl   = shadow.querySelector('.shortcuts');
+  helpBtnEl     = shadow.querySelector('.btn-help');
   statusEl      = shadow.querySelector('.status');
   progressBarEl = shadow.querySelector('.progress-bar');
   progressFillEl = shadow.querySelector('.progress-fill');
@@ -327,56 +421,68 @@ export function initOverlay() {
   deleteBtnEl   = shadow.querySelector('.btn-delete');
   clearBtnEl    = shadow.querySelector('.btn-clear');
   exitBtnEl     = shadow.querySelector('.btn-exit');
-  selectBtnEl   = shadow.querySelector('.btn-select');
 
-  selectBtnEl?.addEventListener('click', () => selectHandler?.());
+  // Tab click: enter selection or exit depending on current mode
+  tabEl?.addEventListener('click', () => {
+    getMode() === 'idle' ? selectHandler?.() : exitHandler?.();
+  });
+  tabEl?.addEventListener('keydown', (e: Event) => {
+    const ke = e as KeyboardEvent;
+    if (ke.key === 'Enter' || ke.key === ' ') {
+      ke.preventDefault();
+      getMode() === 'idle' ? selectHandler?.() : exitHandler?.();
+    }
+  });
+
+  // Shortcuts toggle
+  helpBtnEl?.addEventListener('click', () => {
+    if (!shortcutsEl || !helpBtnEl) return;
+    const isHidden = shortcutsEl.classList.toggle('hidden');
+    helpBtnEl.classList.toggle('active', !isHidden);
+  });
+
   deleteBtnEl?.addEventListener('click', () => deleteHandler?.());
   clearBtnEl?.addEventListener('click',  () => clearHandler?.());
   exitBtnEl?.addEventListener('click',   () => exitHandler?.());
 
-  applyTheme(detectTheme());
-  themeQuery = window.matchMedia('(prefers-color-scheme: light)');
-  themeListener = () => applyTheme(detectTheme());
-  themeQuery.addEventListener('change', themeListener);
-
   onModeChange((mode) => {
     const active = mode === 'active';
-    idleCardEl?.classList.toggle('hidden', active);
-    panelEl?.classList.toggle('hidden', !active);
+    tabEl?.classList.toggle('active', active);
+    active ? openCard() : closeCard();
     if (!active) clearStatus();
   });
 
   onSelectionChange((ids) => {
-    if (!countBadgeEl) return;
+    if (!countBadgeEl || !countRowEl) return;
     const n = ids.size;
+
     countBadgeEl.textContent =
-      n === 0 ? t('sel0') :
       n === 1 ? t('sel1') :
                 t('selN', [String(n)]);
-    countBadgeEl.classList.toggle('has-selection', n > 0);
-    countBadgeEl.classList.remove('warn', 'danger');
-    dotEl?.classList.remove('warn', 'danger');
+
+    countBadgeEl.classList.remove('warn');
+    countRowEl.classList.toggle('hidden', n === 0);
     actionBarEl?.classList.toggle('visible', n > 0);
+
     if (deleteBtnEl) {
       deleteBtnEl.textContent = n === 1 ? t('btn_del1') : t('btn_delN', [String(n)]);
     }
   });
 
   if (getMode() === 'active') {
-    idleCardEl?.classList.add('hidden');
-    panelEl?.classList.remove('hidden');
+    tabEl?.classList.add('active');
+    openCard();
   }
 }
 
 export function onSelectButtonClick(cb: () => void) { selectHandler = cb; }
 export function onDeleteButtonClick(cb: () => void) { deleteHandler = cb; }
-export function onClearButtonClick(cb: () => void)  { clearHandler = cb; }
-export function onExitButtonClick(cb: () => void)   { exitHandler = cb; }
+export function onClearButtonClick(cb: () => void)  { clearHandler  = cb; }
+export function onExitButtonClick(cb: () => void)   { exitHandler   = cb; }
 
 export function showConfirm(n: number) {
   setStatus(n === 1 ? t('conf1') : t('confN', [String(n)]), 'confirm');
   countBadgeEl?.classList.add('warn');
-  dotEl?.classList.add('warn');
 }
 
 export function showProgress(done: number, total: number) {
@@ -387,27 +493,19 @@ export function showProgress(done: number, total: number) {
 }
 
 export function showDeletedInStrip(succeeded: number, failed: number) {
-  if (idleResultTimer) { clearTimeout(idleResultTimer); idleResultTimer = null; }
-  if (!idleResultEl) return;
-
-  const msg = failed === 0
-    ? (succeeded === 1 ? t('done1') : t('doneN', [String(succeeded)]))
-    : t('doneFail', [String(succeeded), String(failed)]);
-
-  idleResultEl.textContent = msg;
-  idleResultEl.className = `idle-result visible ${failed === 0 ? 'idle-success' : 'idle-error'}`;
-
-  idleResultTimer = setTimeout(() => {
-    idleResultTimer = null;
-    if (idleResultEl) idleResultEl.className = 'idle-result';
+  if (resultDotTimer) { clearTimeout(resultDotTimer); resultDotTimer = null; }
+  if (!resultDotEl) return;
+  resultDotEl.className = `result-dot ${failed === 0 ? 'success' : 'error'}`;
+  resultDotTimer = setTimeout(() => {
+    resultDotTimer = null;
+    if (resultDotEl) resultDotEl.className = 'result-dot';
   }, 3000);
 }
 
 export function clearStatus() {
   clearStatusText();
   progressBarEl?.classList.remove('visible');
-  countBadgeEl?.classList.remove('warn', 'danger');
-  dotEl?.classList.remove('warn', 'danger');
+  countBadgeEl?.classList.remove('warn');
 }
 
 function setStatus(text: string, type: 'confirm' | 'error' | 'success') {
@@ -423,15 +521,10 @@ function clearStatusText() {
 }
 
 export function destroyOverlay() {
-  if (themeQuery && themeListener) {
-    themeQuery.removeEventListener('change', themeListener);
-  }
-  themeQuery = null;
-  themeListener = null;
-  if (idleResultTimer) { clearTimeout(idleResultTimer); idleResultTimer = null; }
+  if (resultDotTimer) { clearTimeout(resultDotTimer); resultDotTimer = null; }
   host?.remove();
-  host = shadow = idleCardEl = idleResultEl = panelEl = dotEl = countBadgeEl = statusEl =
-    progressBarEl = progressFillEl = actionBarEl = deleteBtnEl = clearBtnEl =
-    exitBtnEl = selectBtnEl = null;
+  host = shadow = cardEl = tabEl = resultDotEl = dotEl = countBadgeEl =
+    countRowEl = shortcutsEl = helpBtnEl = statusEl = progressBarEl =
+    progressFillEl = actionBarEl = deleteBtnEl = clearBtnEl = exitBtnEl = null;
   deleteHandler = clearHandler = selectHandler = exitHandler = null;
 }

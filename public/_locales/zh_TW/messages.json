@@ -1,24 +1,96 @@
 {
-  "ext_name":        { "message": "Gemini Chat Cleaner" },
-  "ext_description": { "message": "選取並批次刪除 Gemini 對話" },
-  "idle_hint":   { "message": "批次選取" },
-  "btn_select":  { "message": "選取對話" },
-  "mode_title":  { "message": "選取模式" },
-  "key_chat":   { "message": "選取對話" },
-  "key_all":    { "message": "全選" },
-  "key_clear":  { "message": "清除" },
-  "key_delete": { "message": "刪除" },
-  "key_exit":   { "message": "退出" },
-  "btn_clear": { "message": "清除" },
-  "btn_del1":  { "message": "刪除 1 則對話" },
-  "btn_delN":  { "message": "刪除 $COUNT$ 則對話", "placeholders": { "count": { "content": "$1" } } },
-  "btn_exit":  { "message": "退出選取模式" },
-  "sel0": { "message": "已選取 0 則" },
-  "sel1": { "message": "已選取 1 則" },
-  "selN": { "message": "已選取 $COUNT$ 則", "placeholders": { "count": { "content": "$1" } } },
-  "conf1": { "message": "再次按 ↩ 確認刪除 1 則" },
-  "confN": { "message": "再次按 ↩ 確認刪除 $COUNT$ 則", "placeholders": { "count": { "content": "$1" } } },
-  "done1":    { "message": "已刪除 1 則對話" },
-  "doneN":    { "message": "已刪除 $COUNT$ 則對話", "placeholders": { "count": { "content": "$1" } } },
-  "doneFail": { "message": "已刪除 $DONE$ 則，失敗 $FAILED$ 則", "placeholders": { "done": { "content": "$1" }, "failed": { "content": "$2" } } }
+  "ext_name": {
+    "message": "Gemini Chat Cleaner"
+  },
+  "ext_description": {
+    "message": "選取並批次刪除 Gemini 對話"
+  },
+  "idle_hint": {
+    "message": "批次選取"
+  },
+  "btn_select": {
+    "message": "選取對話"
+  },
+  "mode_title": {
+    "message": "選擇要刪除的對話"
+  },
+  "key_chat": {
+    "message": "選取對話"
+  },
+  "key_all": {
+    "message": "全選"
+  },
+  "key_clear": {
+    "message": "清除"
+  },
+  "key_delete": {
+    "message": "刪除"
+  },
+  "key_exit": {
+    "message": "退出"
+  },
+  "btn_clear": {
+    "message": "清除"
+  },
+  "btn_del1": {
+    "message": "刪除 1 則對話"
+  },
+  "btn_delN": {
+    "message": "刪除 $COUNT$ 則對話",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "btn_exit": {
+    "message": "退出選取模式"
+  },
+  "sel0": {
+    "message": "已選取 0 則"
+  },
+  "sel1": {
+    "message": "已選取 1 則"
+  },
+  "selN": {
+    "message": "已選取 $COUNT$ 則",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "conf1": {
+    "message": "再次按 ↩ 確認刪除 1 則"
+  },
+  "confN": {
+    "message": "再次按 ↩ 確認刪除 $COUNT$ 則",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "done1": {
+    "message": "已刪除 1 則對話"
+  },
+  "doneN": {
+    "message": "已刪除 $COUNT$ 則對話",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "doneFail": {
+    "message": "已刪除 $DONE$ 則，失敗 $FAILED$ 則",
+    "placeholders": {
+      "done": {
+        "content": "$1"
+      },
+      "failed": {
+        "content": "$2"
+      }
+    }
+  }
 }
