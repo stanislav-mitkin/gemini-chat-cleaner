@@ -1,0 +1,15 @@
+{
+  "name": "gemini-chat-cleaner",
+  "version": "0.1.0",
+  "description": "Keyboard-driven chat cleaner for Gemini conversations",
+  "scripts": {
+    "dev": "wxt",
+    "build": "wxt build",
+    "zip": "wxt zip",
+    "postinstall": "wxt prepare"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3",
+    "wxt": "^0.20.26"
+  }
+}
