@@ -1,0 +1,48 @@
+🗑️ Xóa hàng loạt các cuộc trò chuyện Gemini trong vài giây. Chọn tất cả hoặc chọn các cuộc trò chuyện cụ thể – xóa chỉ với một cú nhấp.
+
+Chán phải xóa từng cuộc trò chuyện Gemini một? Gemini Chat Cleaner thêm chế độ chọn vào thanh bên Gemini để bạn có thể đánh dấu nhiều cuộc trò chuyện và xóa tất cả cùng lúc. Hoàn hảo để dọn dẹp lịch sử trò chuyện nhanh chóng.
+
+CÁCH SỬ DỤNG
+—————————————
+
+1. Mở gemini.google.com
+2. Nhấp vào tab ở cạnh phải màn hình – hoặc nhấn Ctrl+Shift+X (⌘⇧X trên Mac)
+3. Nhấp vào cuộc trò chuyện để chọn hoặc bỏ chọn
+4. Nhấn Enter (xác nhận → Enter lần nữa) hoặc nhấp Xóa
+
+⌨️ PHÍM TẮT
+——————————————
+
+• Ctrl+Shift+X / ⌘⇧X — Bật / tắt chế độ chọn
+• Nhấp — Chọn hoặc bỏ chọn cuộc trò chuyện
+• Ctrl+A / ⌘A — Chọn tất cả
+• Ctrl+D / ⌘D — Xóa lựa chọn
+• Enter → Enter — Xóa đã chọn (xác nhận hai bước)
+• Escape — Thoát chế độ chọn
+
+✨ TÍNH NĂNG
+—————————————
+
+✓ Chọn và xóa hàng loạt bất kỳ số lượng cuộc trò chuyện nào
+✓ Chọn tất cả chỉ với một phím tắt
+✓ Xác nhận xóa hai bước – không xóa nhầm
+✓ Thanh tiến trình – phản hồi thời gian thực khi xóa
+✓ Giao diện lạc quan – trò chuyện biến mất ngay lập tức, khôi phục khi có lỗi
+✓ Hoàn toàn điều khiển bằng bàn phím
+✓ Nhẹ – không có tập lệnh nền, không gọi đến máy chủ bên thứ ba
+✓ Không cần tài khoản, không đăng nhập, không thu thập dữ liệu
+
+🔒 QUYỀN RIÊNG TƯ
+——————————————————
+
+Gemini Chat Cleaner không thu thập, lưu trữ hoặc truyền bất kỳ dữ liệu cá nhân nào. Tiện ích chỉ gửi yêu cầu xóa trực tiếp đến API của Gemini thay mặt bạn – các yêu cầu tương tự mà gemini.google.com thực hiện khi bạn xóa trò chuyện thủ công.
+
+Quyền được yêu cầu:
+• gemini.google.com – cần thiết để đọc thanh bên và gọi API xóa
+
+🌍 NGÔN NGỮ
+——————————
+
+English, Русский, Deutsch, Español, Français, Italiano, Português, Polski, Nederlands, Türkçe, Indonesian, Tiếng Việt, 日本語, 한국어, 中文(简体), 中文(繁體), العربية
+
+Lý tưởng cho nhà phát triển, nhà nghiên cứu, người dùng AI chuyên sâu và bất kỳ ai muốn giữ Gemini gọn gàng, ngăn nắp.

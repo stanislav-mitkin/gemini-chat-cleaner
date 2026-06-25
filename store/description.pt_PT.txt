@@ -1,0 +1,48 @@
+🗑️ Elimine conversas do Gemini em massa em segundos. Selecione todas ou escolha conversas específicas – elimine com um clique.
+
+Cansado de eliminar conversas do Gemini uma a uma? O Gemini Chat Cleaner adiciona um modo de seleção à barra lateral do Gemini para que possa marcar várias conversas e eliminá-las todas de uma vez. Perfeito para limpar rapidamente o histórico de conversas.
+
+COMO FUNCIONA
+—————————————
+
+1. Abra gemini.google.com
+2. Clique na aba na margem direita do ecrã – ou prima Ctrl+Shift+X (⌘⇧X no Mac)
+3. Clique nas conversas para as selecionar ou desselecionar
+4. Prima Enter (confirmar → Enter novamente) ou clique em Eliminar
+
+⌨️ ATALHOS DE TECLADO
+——————————————————————
+
+• Ctrl+Shift+X / ⌘⇧X — Entrar / sair do modo de seleção
+• Clique — Selecionar ou desselecionar conversa
+• Ctrl+A / ⌘A — Selecionar todas as conversas
+• Ctrl+D / ⌘D — Limpar seleção
+• Enter → Enter — Eliminar selecionadas (confirmação em dois passos)
+• Escape — Sair do modo de seleção
+
+✨ FUNCIONALIDADES
+—————————————————
+
+✓ Selecionar e eliminar qualquer número de conversas
+✓ Selecionar tudo com um atalho
+✓ Confirmação de eliminação em dois passos – sem eliminações acidentais
+✓ Barra de progresso – feedback em tempo real
+✓ UI otimista – conversas desaparecem imediatamente, restauradas em caso de erro
+✓ Fluxo de trabalho totalmente por teclado
+✓ Leve – sem scripts em segundo plano, sem chamadas a servidores externos
+✓ Sem conta, sem início de sessão, sem recolha de dados
+
+🔒 PRIVACIDADE
+——————————————
+
+O Gemini Chat Cleaner não recolhe, armazena nem transmite dados pessoais. Envia apenas pedidos de eliminação diretamente para a própria API do Gemini em seu nome – os mesmos pedidos que o gemini.google.com efetua quando elimina uma conversa manualmente.
+
+Permissões solicitadas:
+• gemini.google.com – necessário para ler a barra lateral e chamar a API de eliminação
+
+🌍 IDIOMAS
+——————————
+
+English, Русский, Deutsch, Español, Français, Italiano, Português, Polski, Nederlands, Türkçe, Indonesian, Tiếng Việt, 日本語, 한국어, 中文(简体), 中文(繁體), العربية
+
+Ideal para programadores, investigadores, utilizadores intensivos de IA e todos os que pretendem manter o Gemini organizado.

@@ -1,0 +1,48 @@
+🗑️ Masowo usuwaj rozmowy z Gemini w kilka sekund. Zaznacz wszystkie lub wybrane czaty – usuń jednym kliknięciem.
+
+Masz dość usuwania rozmów z Gemini jedna po drugiej? Gemini Chat Cleaner dodaje tryb wyboru do paska bocznego Gemini, umożliwiając zaznaczenie wielu rozmów i usunięcie ich wszystkich naraz. Idealny do szybkiego porządkowania historii czatów.
+
+JAK TO DZIAŁA
+—————————————
+
+1. Otwórz gemini.google.com
+2. Kliknij zakładkę przy prawej krawędzi ekranu – lub naciśnij Ctrl+Shift+X (⌘⇧X na Mac)
+3. Klikaj rozmowy, aby je zaznaczać lub odznaczać
+4. Naciśnij Enter (potwierdź → Enter ponownie) lub kliknij Usuń
+
+⌨️ SKRÓTY KLAWISZOWE
+——————————————————————
+
+• Ctrl+Shift+X / ⌘⇧X — Wejdź / wyjdź z trybu wyboru
+• Kliknięcie — Zaznacz lub odznacz czat
+• Ctrl+A / ⌘A — Zaznacz wszystkie czaty
+• Ctrl+D / ⌘D — Wyczyść zaznaczenie
+• Enter → Enter — Usuń zaznaczone (potwierdzenie dwuetapowe)
+• Escape — Wyjdź z trybu wyboru
+
+✨ FUNKCJE
+——————————
+
+✓ Masowe zaznaczanie i usuwanie dowolnej liczby rozmów
+✓ Zaznaczanie wszystkich jednym skrótem
+✓ Dwuetapowe potwierdzenie usunięcia – bez przypadkowego kasowania
+✓ Pasek postępu – informacja zwrotna w czasie rzeczywistym
+✓ Optymistyczny interfejs – czaty znikają natychmiast, przywracane w razie błędu
+✓ W pełni obsługiwany z klawiatury
+✓ Lekki – brak skryptów w tle, brak połączeń z zewnętrznymi serwerami
+✓ Bez konta, bez logowania, bez zbierania danych
+
+🔒 PRYWATNOŚĆ
+—————————————
+
+Gemini Chat Cleaner nie zbiera, nie przechowuje ani nie przesyła żadnych danych osobowych. Wysyła jedynie żądania usunięcia bezpośrednio do własnego API Gemini w Twoim imieniu – te same żądania, które gemini.google.com wykonuje przy ręcznym usuwaniu czatu.
+
+Wymagane uprawnienia:
+• gemini.google.com – niezbędne do odczytu paska bocznego i wywołania API usuwania
+
+🌍 JĘZYKI
+—————————
+
+English, Русский, Deutsch, Español, Français, Italiano, Português, Polski, Nederlands, Türkçe, Indonesian, Tiếng Việt, 日本語, 한국어, 中文(简体), 中文(繁體), العربية
+
+Idealny dla deweloperów, badaczy, intensywnych użytkowników AI i wszystkich, którzy chcą utrzymać Gemini w porządku.

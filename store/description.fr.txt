@@ -1,0 +1,48 @@
+🗑️ Supprimez des conversations Gemini en masse en quelques secondes. Sélectionnez tout ou choisissez des chats précis – supprimez d'un clic.
+
+Marre de supprimer les conversations Gemini une par une ? Gemini Chat Cleaner ajoute un mode de sélection à la barre latérale de Gemini pour marquer plusieurs conversations et les supprimer toutes en même temps. Idéal pour nettoyer rapidement l'historique des chats.
+
+COMMENT ÇA MARCHE
+——————————————————
+
+1. Ouvrez gemini.google.com
+2. Cliquez sur l'onglet au bord droit de l'écran – ou appuyez sur Ctrl+Shift+X (⌘⇧X sur Mac)
+3. Cliquez sur des conversations pour les sélectionner ou désélectionner
+4. Appuyez sur Entrée (confirmer → Entrée à nouveau) ou cliquez sur Supprimer
+
+⌨️ RACCOURCIS CLAVIER
+——————————————————————
+
+• Ctrl+Shift+X / ⌘⇧X — Activer / quitter le mode sélection
+• Clic — Sélectionner ou désélectionner un chat
+• Ctrl+A / ⌘A — Tout sélectionner
+• Ctrl+D / ⌘D — Effacer la sélection
+• Entrée → Entrée — Supprimer la sélection (confirmation en deux étapes)
+• Échap — Quitter le mode sélection
+
+✨ FONCTIONNALITÉS
+——————————————————
+
+✓ Sélection et suppression en masse de n'importe quel nombre de conversations
+✓ Tout sélectionner en un raccourci
+✓ Confirmation de suppression en deux étapes – aucune suppression accidentelle
+✓ Barre de progression – retour en temps réel
+✓ UI optimiste – les chats disparaissent instantanément, restaurés en cas d'erreur
+✓ Workflow entièrement au clavier
+✓ Léger – aucun script en arrière-plan, aucun appel à des serveurs tiers
+✓ Aucun compte, aucune connexion, aucune collecte de données
+
+🔒 CONFIDENTIALITÉ
+——————————————————
+
+Gemini Chat Cleaner ne collecte, ne stocke ni ne transmet aucune donnée personnelle. Il envoie uniquement des demandes de suppression directement à l'API de Gemini en votre nom – les mêmes requêtes que gemini.google.com effectue lorsque vous supprimez un chat manuellement.
+
+Permissions demandées :
+• gemini.google.com – nécessaire pour lire la barre latérale et appeler l'API de suppression
+
+🌍 LANGUES
+——————————
+
+English, Русский, Deutsch, Español, Français, Italiano, Português, Polski, Nederlands, Türkçe, Indonesian, Tiếng Việt, 日本語, 한국어, 中文(简体), 中文(繁體), العربية
+
+Idéal pour les développeurs, chercheurs, grands utilisateurs d'IA et toute personne souhaitant garder Gemini propre et organisé.

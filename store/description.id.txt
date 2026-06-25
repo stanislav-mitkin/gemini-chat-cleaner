@@ -1,0 +1,48 @@
+🗑️ Hapus percakapan Gemini secara massal dalam hitungan detik. Pilih semua atau tentukan obrolan tertentu – hapus dengan satu klik.
+
+Bosan menghapus percakapan Gemini satu per satu? Gemini Chat Cleaner menambahkan mode pemilihan ke bilah sisi Gemini sehingga kamu bisa menandai beberapa percakapan dan menghapusnya sekaligus. Sempurna untuk membersihkan riwayat obrolan dengan cepat.
+
+CARA KERJA
+——————————
+
+1. Buka gemini.google.com
+2. Klik tab di tepi kanan layar – atau tekan Ctrl+Shift+X (⌘⇧X di Mac)
+3. Klik percakapan untuk memilih atau membatalkan pilihan
+4. Tekan Enter (konfirmasi → Enter lagi) atau klik Hapus
+
+⌨️ PINTASAN KEYBOARD
+——————————————————————
+
+• Ctrl+Shift+X / ⌘⇧X — Masuk / keluar mode pemilihan
+• Klik — Pilih atau batalkan pilihan obrolan
+• Ctrl+A / ⌘A — Pilih semua obrolan
+• Ctrl+D / ⌘D — Bersihkan pilihan
+• Enter → Enter — Hapus yang dipilih (konfirmasi dua langkah)
+• Escape — Keluar dari mode pemilihan
+
+✨ FITUR
+—————————
+
+✓ Pilih dan hapus percakapan dalam jumlah berapa pun
+✓ Pilih semua dengan satu pintasan
+✓ Konfirmasi penghapusan dua langkah – tidak ada penghapusan yang tidak disengaja
+✓ Bilah kemajuan – umpan balik waktu nyata saat penghapusan
+✓ UI optimistis – obrolan langsung hilang, dipulihkan jika terjadi kesalahan
+✓ Alur kerja sepenuhnya menggunakan keyboard
+✓ Ringan – tanpa skrip latar belakang, tanpa panggilan ke server pihak ketiga
+✓ Tanpa akun, tanpa login, tanpa pengumpulan data
+
+🔒 PRIVASI
+——————————
+
+Gemini Chat Cleaner tidak mengumpulkan, menyimpan, atau mengirimkan data pribadi apa pun. Ekstensi ini hanya mengirim permintaan penghapusan langsung ke API Gemini atas namamu – permintaan yang sama seperti yang dilakukan gemini.google.com saat kamu menghapus obrolan secara manual.
+
+Izin yang diminta:
+• gemini.google.com – diperlukan untuk membaca bilah sisi dan memanggil API penghapusan
+
+🌍 BAHASA
+—————————
+
+English, Русский, Deutsch, Español, Français, Italiano, Português, Polski, Nederlands, Türkçe, Indonesian, Tiếng Việt, 日本語, 한국어, 中文(简体), 中文(繁體), العربية
+
+Ideal untuk developer, peneliti, pengguna AI intensif, dan siapa saja yang ingin menjaga Gemini tetap bersih dan terorganisir.

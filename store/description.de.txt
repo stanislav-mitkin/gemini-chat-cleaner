@@ -1,0 +1,48 @@
+🗑️ Gemini-Gespräche in Sekunden massenhaft löschen. Alle auswählen oder einzelne Chats wählen – mit einem Klick löschen.
+
+Bist du es leid, Gemini-Gespräche einzeln zu löschen? Gemini Chat Cleaner fügt einen Auswahlmodus in die Gemini-Seitenleiste ein, sodass du mehrere Gespräche auf einmal markieren und löschen kannst. Ideal, um den Chat-Verlauf schnell aufzuräumen.
+
+SO FUNKTIONIERT ES
+——————————————————
+
+1. Öffne gemini.google.com
+2. Klicke auf den Tab am rechten Bildschirmrand – oder drücke Ctrl+Shift+X (⌘⇧X auf Mac)
+3. Klicke auf Gespräche, um sie auszuwählen oder abzuwählen
+4. Drücke Enter (bestätigen → nochmal Enter) oder klicke Löschen
+
+⌨️ TASTENKÜRZEL
+————————————
+
+• Ctrl+Shift+X / ⌘⇧X — Auswahlmodus ein-/ausschalten
+• Klick — Gespräch auswählen / abwählen
+• Ctrl+A / ⌘A — Alle auswählen
+• Ctrl+D / ⌘D — Auswahl aufheben
+• Enter → Enter — Ausgewählte löschen (zweistufige Bestätigung)
+• Escape — Auswahlmodus verlassen
+
+✨ FUNKTIONEN
+——————————
+
+✓ Beliebig viele Gespräche auswählen und löschen
+✓ Alle mit einem Kürzel auswählen
+✓ Zweistufige Löschbestätigung – kein versehentliches Löschen
+✓ Fortschrittsanzeige in Echtzeit
+✓ Optimistische UI – Chats verschwinden sofort, werden bei Fehler wiederhergestellt
+✓ Vollständig per Tastatur bedienbar
+✓ Leichtgewichtig – keine Hintergrundskripte, keine Drittanbieterserver
+✓ Kein Konto, kein Login, keine Datensammlung
+
+🔒 DATENSCHUTZ
+——————————
+
+Gemini Chat Cleaner erfasst, speichert oder überträgt keine personenbezogenen Daten. Die Erweiterung sendet Löschanfragen direkt an Geminis eigene API – dieselben Anfragen, die gemini.google.com beim manuellen Löschen eines Chats stellt.
+
+Benötigte Berechtigungen:
+• gemini.google.com – erforderlich zum Lesen der Seitenleiste und zum Aufrufen der Lösch-API
+
+🌍 SPRACHEN
+——————————
+
+English, Русский, Deutsch, Español, Français, Italiano, Português, Polski, Nederlands, Türkçe, Indonesian, Tiếng Việt, 日本語, 한국어, 中文(简体), 中文(繁體), العربية
+
+Ideal für Entwickler, Forscher, intensive KI-Nutzer und alle, die Gemini sauber und organisiert halten möchten.

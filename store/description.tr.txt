@@ -1,0 +1,48 @@
+🗑️ Gemini konuşmalarını saniyeler içinde toplu olarak silin. Tümünü seçin veya belirli sohbetleri seçin – tek tıkla silin.
+
+Gemini konuşmalarını tek tek silmekten bıktınız mı? Gemini Chat Cleaner, Gemini kenar çubuğuna bir seçim modu ekleyerek birden fazla konuşmayı işaretlemenizi ve hepsini aynı anda silmenizi sağlar. Sohbet geçmişinizi hızla temizlemek için mükemmel.
+
+NASIL ÇALIŞIR
+—————————————
+
+1. gemini.google.com'u açın
+2. Ekranın sağ kenarındaki sekmeye tıklayın – veya Ctrl+Shift+X (Mac'te ⌘⇧X) tuşlarına basın
+3. Konuşmaları seçmek veya seçimi kaldırmak için tıklayın
+4. Enter'a basın (onayla → tekrar Enter) veya Sil'e tıklayın
+
+⌨️ KLAVYE KISAYOLLARI
+——————————————————————
+
+• Ctrl+Shift+X / ⌘⇧X — Seçim moduna gir / çık
+• Tıkla — Sohbeti seç / seçimi kaldır
+• Ctrl+A / ⌘A — Tüm sohbetleri seç
+• Ctrl+D / ⌘D — Seçimi temizle
+• Enter → Enter — Seçilenleri sil (iki adımlı onay)
+• Escape — Seçim modundan çık
+
+✨ ÖZELLİKLER
+—————————————
+
+✓ İstediğiniz kadar konuşmayı toplu seçin ve silin
+✓ Tek kısayolla tümünü seçin
+✓ İki adımlı silme onayı – yanlışlıkla silme yok
+✓ İlerleme çubuğu – silme sırasında gerçek zamanlı geri bildirim
+✓ İyimser UI – sohbetler anında kaybolur, hata durumunda geri yüklenir
+✓ Tamamen klavyeyle yönetilen iş akışı
+✓ Hafif – arka plan komut dosyası yok, üçüncü taraf sunucu çağrısı yok
+✓ Hesap yok, giriş yok, veri toplanmaz
+
+🔒 GİZLİLİK
+—————————
+
+Gemini Chat Cleaner hiçbir kişisel veri toplamaz, saklamaz veya iletmez. Yalnızca sizin adınıza doğrudan Gemini'nin kendi API'sine silme istekleri gönderir – gemini.google.com'un bir sohbeti manuel olarak silerken yaptığı isteklerle aynıdır.
+
+İstenen izinler:
+• gemini.google.com – kenar çubuğunu okumak ve silme API'sini çağırmak için gerekli
+
+🌍 DİLLER
+—————————
+
+English, Русский, Deutsch, Español, Français, Italiano, Português, Polski, Nederlands, Türkçe, Indonesian, Tiếng Việt, 日本語, 한국어, 中文(简体), 中文(繁體), العربية
+
+Geliştiriciler, araştırmacılar, yoğun yapay zeka kullanıcıları ve Gemini'yi temiz ve düzenli tutmak isteyen herkes için ideal.
