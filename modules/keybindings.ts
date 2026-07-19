@@ -73,7 +73,7 @@ async function confirmAndDelete() {
 function onKeyDown(e: KeyboardEvent) {
   if (isModifier(e) && e.shiftKey && e.code === 'KeyX') {
     e.preventDefault();
-    getMode() === 'idle' ? enterMode() : (cancelPending(), exitMode());
+    if (getMode() === 'idle') { enterMode(); } else { cancelPending(); exitMode(); }
     return;
   }
 

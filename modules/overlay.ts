@@ -336,7 +336,6 @@ let shadow: ShadowRoot | null = null;
 let cardEl:          HTMLElement | null        = null;
 let tabEl:           HTMLElement | null        = null;
 let resultDotEl:     HTMLElement | null        = null;
-let dotEl:           HTMLElement | null        = null; // kept for API compat (always null)
 let countBadgeEl:    HTMLElement | null        = null;
 let countRowEl:      HTMLElement | null        = null;
 let shortcutsEl:     HTMLElement | null        = null;
@@ -430,7 +429,6 @@ export function initOverlay() {
   cardEl        = shadow.querySelector('.card');
   tabEl         = shadow.querySelector('.tab');
   resultDotEl   = shadow.querySelector('.result-dot');
-  dotEl         = null; // removed from DOM; API calls via ?. are safe no-ops
   countBadgeEl  = shadow.querySelector('.count-badge');
   countRowEl    = shadow.querySelector('.count-row');
   shortcutsEl   = shadow.querySelector('.shortcuts');
@@ -564,7 +562,7 @@ export function destroyOverlay() {
   if (revealTimer) { clearTimeout(revealTimer); revealTimer = null; }
   host?.remove();
   revealed = false;
-  host = shadow = cardEl = tabEl = resultDotEl = dotEl = countBadgeEl =
+  host = shadow = cardEl = tabEl = resultDotEl = countBadgeEl =
     countRowEl = shortcutsEl = helpBtnEl = statusEl = progressBarEl =
     progressFillEl = actionBarEl = deleteBtnEl = clearBtnEl = exitBtnEl = null;
   deleteHandler = clearHandler = selectHandler = exitHandler = null;
