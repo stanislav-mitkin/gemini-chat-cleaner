@@ -6,7 +6,7 @@ export default defineConfig({
     default_locale: 'en',
     name: '__MSG_ext_name__',
     description: '__MSG_ext_description__',
-    version: '0.1.0',
+    version: '0.2.0',
     permissions: [],
     host_permissions: [
       'https://gemini.google.com/*',
