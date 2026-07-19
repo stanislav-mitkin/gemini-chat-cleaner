@@ -4,6 +4,9 @@ export type SelectionMode = 'idle' | 'active';
 
 const CSS_HOVER    = 'gcc-hover';
 const CSS_SELECTED = 'gcc-selected';
+const CSS_SIDEBAR_ACTIVE = 'gcc-sidebar-active';
+
+const SIDEBAR_SELECTOR = 'conversations-list[data-test-id="all-conversations"]';
 
 let mode: SelectionMode = 'idle';
 let selectedIds = new Set<string>();
@@ -32,6 +35,7 @@ export function enterMode() {
   selectedIds = new Set();
   hoveredId = null;
   (document.activeElement as HTMLElement)?.blur?.();
+  document.querySelector(SIDEBAR_SELECTOR)?.classList.add(CSS_SIDEBAR_ACTIVE);
   modeListeners.forEach((cb) => cb(mode));
   notifySelection();
 }
@@ -42,6 +46,7 @@ export function exitMode() {
   selectedIds = new Set();
   hoveredId = null;
   clearAllClasses();
+  document.querySelector(SIDEBAR_SELECTOR)?.classList.remove(CSS_SIDEBAR_ACTIVE);
   modeListeners.forEach((cb) => cb(mode));
   notifySelection();
 }

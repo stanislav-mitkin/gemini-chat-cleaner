@@ -1,8 +1,8 @@
-import { initChatList, onChatListChange, destroyChatList } from '../modules/chat-list';
+import { initChatList, onChatListChange, destroyChatList, getChatList } from '../modules/chat-list';
 import { initKeybindings, destroyKeybindings } from '../modules/keybindings';
 import { injectStyles, removeStyles } from '../modules/styles';
 import { refreshClasses } from '../modules/selection';
-import { initOverlay, destroyOverlay } from '../modules/overlay';
+import { initOverlay, destroyOverlay, revealTab } from '../modules/overlay';
 
 export default defineContentScript({
   matches: ['https://gemini.google.com/*'],
@@ -13,7 +13,11 @@ export default defineContentScript({
     waitForSidebar(() => {
       initChatList();
       initKeybindings();
-      onChatListChange(() => refreshClasses());
+      onChatListChange((chats) => {
+        refreshClasses();
+        if (chats.length > 0) revealTab();
+      });
+      if (getChatList().length > 0) revealTab();
     });
 
     return () => {

@@ -17,6 +17,14 @@ a.gcc-hover.gcc-selected {
   background-color: rgba(66, 133, 244, 0.28) !important;
   outline-color: #4285f4 !important;
 }
+
+conversations-list.gcc-sidebar-active {
+  /* Horizontal-only shadow (no vertical offset/blur) so it isn't clipped by
+     the list's vertical overflow — an outline/box-shadow with any vertical
+     extent gets cut off top/bottom by the scroll container. */
+  box-shadow: -3px 0 0 0 rgba(66, 133, 244, 0.6) !important;
+  transition: box-shadow 0.15s ease-out !important;
+}
 `;
 
 export function injectStyles() {

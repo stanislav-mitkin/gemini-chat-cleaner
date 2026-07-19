@@ -10,6 +10,10 @@ const HOST_ID = 'gcc-overlay-host';
 const TAB_W   = 44;
 const PANEL_W = 220;
 
+// Small pause before the tab reveals itself, so it doesn't pop in the instant
+// the chat list finishes loading — gives the entrance bounce a deliberate beat.
+const REVEAL_DELAY_MS = 400;
+
 const LOGO_ICON = `<svg class="icon-logo" viewBox="0 0 128 128" width="22" height="22" aria-hidden="true">
   <defs>
     <linearGradient id="gcc-g" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -93,6 +97,22 @@ const SHADOW_CSS = `
     will-change: transform;
   }
   .card.open { transform: translateX(0); }
+
+  /* ── entrance: slide in from fully off-screen with a light bounce ──
+     Final frame must match the resting transform above so removing
+     .card-enter after animationend causes no visual jump. */
+  @keyframes gcc-card-enter {
+    0%   { transform: translateX(${PANEL_W + 60}px); }
+    55%  { transform: translateX(${PANEL_W - 8}px); }
+    78%  { transform: translateX(${PANEL_W + 3}px); }
+    100% { transform: translateX(${PANEL_W}px); }
+  }
+  .card.card-enter {
+    animation: gcc-card-enter 0.55s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .card.card-enter { animation: none; }
+  }
 
   /* ── tab: compact pill — the only thing visible when closed */
   .tab {
@@ -338,8 +358,11 @@ let exitHandler:   (() => void) | null = null;
 function openCard()  { cardEl?.classList.add('open'); }
 function closeCard() { cardEl?.classList.remove('open'); }
 
+let revealed = false;
+let revealTimer: ReturnType<typeof setTimeout> | null = null;
+
 export function initOverlay() {
-  if (document.getElementById(HOST_ID)) return;
+  if (host) return;
 
   const mac = isMac();
   const mod = mac ? '⌘' : 'Ctrl+';
@@ -403,8 +426,6 @@ export function initOverlay() {
 
     </div>
   `;
-
-  document.body.appendChild(host);
 
   cardEl        = shadow.querySelector('.card');
   tabEl         = shadow.querySelector('.tab');
@@ -475,6 +496,24 @@ export function initOverlay() {
   }
 }
 
+// Only reveal the tab once there's a chat list to act on — no point showing
+// a "select chats to delete" affordance with nothing to select.
+export function revealTab() {
+  if (revealed || revealTimer || !host) return;
+  revealTimer = setTimeout(() => {
+    revealTimer = null;
+    if (!host) return; // destroyed before the delay elapsed
+    revealed = true;
+    document.body.appendChild(host);
+
+    if (getMode() === 'active') return; // already shown via initOverlay's own check
+    cardEl?.classList.add('card-enter');
+    cardEl?.addEventListener('animationend', () => {
+      cardEl?.classList.remove('card-enter');
+    }, { once: true });
+  }, REVEAL_DELAY_MS);
+}
+
 export function onSelectButtonClick(cb: () => void) { selectHandler = cb; }
 export function onDeleteButtonClick(cb: () => void) { deleteHandler = cb; }
 export function onClearButtonClick(cb: () => void)  { clearHandler  = cb; }
@@ -522,7 +561,9 @@ function clearStatusText() {
 
 export function destroyOverlay() {
   if (resultDotTimer) { clearTimeout(resultDotTimer); resultDotTimer = null; }
+  if (revealTimer) { clearTimeout(revealTimer); revealTimer = null; }
   host?.remove();
+  revealed = false;
   host = shadow = cardEl = tabEl = resultDotEl = dotEl = countBadgeEl =
     countRowEl = shortcutsEl = helpBtnEl = statusEl = progressBarEl =
     progressFillEl = actionBarEl = deleteBtnEl = clearBtnEl = exitBtnEl = null;
