@@ -61,10 +61,10 @@
     }
   },
   "conf1": {
-    "message": "再次按 ↩ 確認刪除 1 則"
+    "message": "再次點擊確認刪除 1 則"
   },
   "confN": {
-    "message": "再次按 ↩ 確認刪除 $COUNT$ 則",
+    "message": "再次點擊確認刪除 $COUNT$ 則",
     "placeholders": {
       "count": {
         "content": "$1"

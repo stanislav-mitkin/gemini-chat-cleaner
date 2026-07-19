@@ -61,10 +61,10 @@
     }
   },
   "conf1": {
-    "message": "Erneut ↩ drücken, um 1 Chat zu löschen"
+    "message": "Erneut klicken, um 1 Chat zu löschen"
   },
   "confN": {
-    "message": "Erneut ↩ drücken, um $COUNT$ Chats zu löschen",
+    "message": "Erneut klicken, um $COUNT$ Chats zu löschen",
     "placeholders": {
       "count": {
         "content": "$1"

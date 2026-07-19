@@ -61,10 +61,10 @@
     }
   },
   "conf1": {
-    "message": "Pulsa ↩ de nuevo para eliminar 1 chat"
+    "message": "Haz clic de nuevo para eliminar 1 chat"
   },
   "confN": {
-    "message": "Pulsa ↩ de nuevo para eliminar $COUNT$ chats",
+    "message": "Haz clic de nuevo para eliminar $COUNT$ chats",
     "placeholders": {
       "count": {
         "content": "$1"

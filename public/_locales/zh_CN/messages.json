@@ -61,10 +61,10 @@
     }
   },
   "conf1": {
-    "message": "再次按 ↩ 确认删除 1 条"
+    "message": "再次点击确认删除 1 条"
   },
   "confN": {
-    "message": "再次按 ↩ 确认删除 $COUNT$ 条",
+    "message": "再次点击确认删除 $COUNT$ 条",
     "placeholders": {
       "count": {
         "content": "$1"

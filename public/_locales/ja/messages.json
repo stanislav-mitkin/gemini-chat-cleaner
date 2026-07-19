@@ -61,10 +61,10 @@
     }
   },
   "conf1": {
-    "message": "もう一度 ↩ を押して 1 件を削除"
+    "message": "もう一度クリックして1件を削除"
   },
   "confN": {
-    "message": "もう一度 ↩ を押して $COUNT$ 件を削除",
+    "message": "もう一度クリックして$COUNT$件を削除",
     "placeholders": {
       "count": {
         "content": "$1"

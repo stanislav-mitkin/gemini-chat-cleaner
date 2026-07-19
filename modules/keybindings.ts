@@ -184,7 +184,7 @@ function onClick(e: MouseEvent) {
 
 export function initKeybindings() {
   onSelectButtonClick(() => enterMode());
-  onDeleteButtonClick(() => executeDelete());
+  onDeleteButtonClick(() => confirmAndDelete());
   onClearButtonClick(() => clearAll());
   onExitButtonClick(() => { cancelPending(); exitMode(); });
   document.addEventListener('keydown', onKeyDown, { capture: true });

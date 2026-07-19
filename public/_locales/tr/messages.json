@@ -61,10 +61,10 @@
     }
   },
   "conf1": {
-    "message": "1 sohbeti silmek için ↩ tekrar bas"
+    "message": "1 sohbeti silmek için tekrar tıkla"
   },
   "confN": {
-    "message": "$COUNT$ sohbeti silmek için ↩ tekrar bas",
+    "message": "$COUNT$ sohbeti silmek için tekrar tıkla",
     "placeholders": {
       "count": {
         "content": "$1"

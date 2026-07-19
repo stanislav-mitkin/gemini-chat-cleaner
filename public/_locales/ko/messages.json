@@ -61,10 +61,10 @@
     }
   },
   "conf1": {
-    "message": "↩ 을 다시 눌러 1개 삭제"
+    "message": "다시 클릭하여 1개 삭제"
   },
   "confN": {
-    "message": "↩ 을 다시 눌러 $COUNT$개 삭제",
+    "message": "다시 클릭하여 $COUNT$개 삭제",
     "placeholders": {
       "count": {
         "content": "$1"

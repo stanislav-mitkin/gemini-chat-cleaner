@@ -61,10 +61,10 @@
     }
   },
   "conf1": {
-    "message": "Tekan ↩ lagi untuk menghapus 1 chat"
+    "message": "Klik lagi untuk menghapus 1 chat"
   },
   "confN": {
-    "message": "Tekan ↩ lagi untuk menghapus $COUNT$ chat",
+    "message": "Klik lagi untuk menghapus $COUNT$ chat",
     "placeholders": {
       "count": {
         "content": "$1"
